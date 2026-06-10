@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Esenef Tools — Digital Seller Assistant untuk bikin paket promosi lengkap dari nama produk." />
+  <title>Esenef Tools — Digital Seller Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero" id="top">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="#top" aria-label="Esenef Tools">
+          <span class="brand-mark">E</span>
+          <span>Esenef Tools</span>
+        </a>
+        <a class="nav-link" href="#generator">Mulai bikin paket</a>
+      </nav>
+
+      <div class="hero-grid">
+        <section class="hero-copy" aria-labelledby="hero-title">
+          <p class="badge">Cocok buat pemula jualan dari HP</p>
+          <h1 id="hero-title">Digital Seller Assistant</h1>
+          <p class="hero-subtitle">Masukin nama produk, langsung dapet target audiens, angle jualan, hook, caption, CTA, script video, balasan DM, dan rencana posting.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#generator">Buat Paket Sekarang</a>
+            <button class="btn btn-secondary" type="button" id="showExampleBtn">Lihat Contoh Hasil</button>
+          </div>
+        </section>
+
+        <aside class="hero-card" aria-label="Preview hasil tools">
+          <div class="mini-window">
+            <span></span><span></span><span></span>
+          </div>
+          <p class="eyebrow">Preview paket</p>
+          <h2>Nama produk → strategi promosi siap pakai</h2>
+          <ul>
+            <li>Target audiens yang masuk akal</li>
+            <li>Hook yang relate, bukan maksa</li>
+            <li>Plan posting 5 hari biar ga blank</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="section problems" aria-labelledby="problem-title">
+        <div class="section-heading">
+          <p class="eyebrow">Masalah yang sering kejadian</p>
+          <h2 id="problem-title">Jualan online sering berhenti bukan karena malas, tapi karena bingung mulai dari mana.</h2>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card"><span>01</span><h3>Blank tiap mau posting</h3><p>Udah buka aplikasi, tapi caption dan ide kontennya mentok.</p></article>
+          <article class="problem-card"><span>02</span><h3>Bingung produk cocok buat siapa</h3><p>Produknya ada, tapi target orang yang diajak ngobrol belum kebayang.</p></article>
+          <article class="problem-card"><span>03</span><h3>Takut promosi keliatan maksa</h3><p>Pengen jualan, tapi ga mau followers merasa dicekokin iklan.</p></article>
+          <article class="problem-card"><span>04</span><h3>Ga tahu harus bahas apa besok</h3><p>Butuh alur posting simpel yang bisa diulang dan dikembangin.</p></article>
+        </div>
+      </section>
+
+      <section class="section generator-section" id="generator" aria-labelledby="generator-title">
+        <div class="generator-layout">
+          <div class="form-panel card-glass">
+            <p class="eyebrow">Fitur utama</p>
+            <h2 id="generator-title">Buat Paket Promosi Lengkap</h2>
+            <p class="muted">Cukup isi nama produk. Sisanya tools bantu mikirin biar kamu ga mulai dari kertas kosong.</p>
+
+            <form id="promoForm" novalidate>
+              <label for="productName">Nama produk <span>wajib</span></label>
+              <input id="productName" name="productName" type="text" autocomplete="off" placeholder="contoh: Paket Produk Digital Siap Jual / Sunscreen SPF 50 / Rice Cooker Mini" />
+              <p class="error-message" id="formError" role="alert"></p>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="productType">Jenis produk</label>
+                  <select id="productType" name="productType">
+                    <option>Produk Digital</option>
+                    <option>Affiliate Shopee</option>
+                    <option>TikTok Shop</option>
+                    <option>Skincare</option>
+                    <option>Fashion</option>
+                    <option>Alat Rumah</option>
+                    <option>Makanan</option>
+                    <option>Lainnya</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="platform">Platform promosi</label>
+                  <select id="platform" name="platform">
+                    <option>Threads</option>
+                    <option>TikTok</option>
+                    <option>Instagram</option>
+                    <option>WhatsApp</option>
+                    <option>Shopee Video</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="contentStyle">Gaya konten</label>
+                  <select id="contentStyle" name="contentStyle">
+                    <option>Soft Selling</option>
+                    <option>Relate & Curhat</option>
+                    <option>Edukasi</option>
+                    <option>Review Jujur</option>
+                    <option>Viral Halus</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="userLevel">Level user</label>
+                  <select id="userLevel" name="userLevel">
+                    <option>Aku masih blank banget</option>
+                    <option>Aku udah punya produk tapi bingung promosi</option>
+                    <option>Aku butuh konten siap posting</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-full" type="submit">Generate Paket Promosi</button>
+              <p class="loading" id="loadingText" aria-live="polite">lagi bantu mikirin angle jualan yang paling masuk akal...</p>
+            </form>
+          </div>
+
+          <aside class="history-panel card-glass" aria-labelledby="history-title">
+            <div class="history-head">
+              <div>
+                <p class="eyebrow">Riwayat</p>
+                <h3 id="history-title">5 hasil terakhir</h3>
+              </div>
+              <button class="text-button" type="button" id="clearHistoryBtn">Bersihkan</button>
+            </div>
+            <div id="historyList" class="history-list"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section output-section" aria-labelledby="output-title">
+        <div class="output-head">
+          <div>
+            <p class="eyebrow">Hasil asisten</p>
+            <h2 id="output-title">Paket promosi kamu</h2>
+          </div>
+          <button class="btn btn-secondary hidden" type="button" id="copyAllBtn">Copy Semua</button>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <p>Contoh hasil: target audiens, angle, hook, caption, CTA, script video, balasan DM, dan rencana posting 5 hari.</p>
+        </div>
+
+        <div class="style-actions hidden" id="styleActions" aria-label="Regenerate style">
+          <button type="button" data-style="santai">Bikin Lebih Santai</button>
+          <button type="button" data-style="soft">Bikin Lebih Soft Selling</button>
+          <button type="button" data-style="relate">Bikin Lebih Relate</button>
+          <button type="button" data-style="singkat">Bikin Lebih Singkat</button>
+        </div>
+
+        <div class="output-grid" id="outputGrid"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Dibuat untuk pemula yang pengen jualan lebih rapi, bukan makin pusing.</p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Berhasil disalin.</div>
+  <script src="script.js"></script>
+</body>
+</html>
