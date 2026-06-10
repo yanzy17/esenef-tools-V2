@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Esenef Tools — Digital Seller Assistant compact untuk bikin konten jualan tanpa blank." />
+  <title>Esenef Tools — Digital Seller Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Esenef Tools">
+        <span class="brand-mark">E</span>
+        <span>Esenef Tools</span>
+      </a>
+      <div class="top-actions">
+        <span class="assistant-badge">Digital Seller Assistant</span>
+        <button class="ghost-btn" type="button" id="historyToggle" aria-controls="historyPanel" aria-expanded="false">Riwayat</button>
+        <button class="ghost-btn" type="button" id="resetBtn">Reset</button>
+      </div>
+    </header>
+
+    <noscript class="noscript">Tools ini butuh JavaScript aktif supaya generator, copy, dan riwayat bisa berjalan.</noscript>
+
+    <main id="top">
+      <section class="workspace" aria-labelledby="heroTitle">
+        <div class="intro-panel">
+          <p class="micro-label">Untuk pemula jualan dari HP</p>
+          <h1 id="heroTitle">Bikin Konten Jualan Tanpa Blank</h1>
+          <p class="subtitle">Masukin nama produk, langsung dapet angle, hook, caption, CTA, script, dan balasan DM siap pakai.</p>
+        </div>
+
+        <section class="generator-card" aria-labelledby="generatorTitle">
+          <div class="card-heading">
+            <div>
+              <p class="micro-label">Generator</p>
+              <h2 id="generatorTitle">Buat Paket Promosi</h2>
+            </div>
+            <span class="compact-hint">cukup nama produk</span>
+          </div>
+
+          <form id="promoForm" novalidate>
+            <label for="productName">Nama produk</label>
+            <input id="productName" name="productName" type="text" autocomplete="off" placeholder="contoh: Sunscreen SPF 50 / Rice Cooker Mini" />
+            <p class="error-message" id="formError" role="alert"></p>
+
+            <div class="compact-fields">
+              <label class="select-field" for="productType">
+                <span>Jenis</span>
+                <select id="productType" name="productType">
+                  <option>Produk Digital</option>
+                  <option>Affiliate Shopee</option>
+                  <option>TikTok Shop</option>
+                  <option>Skincare</option>
+                  <option>Fashion</option>
+                  <option>Alat Rumah</option>
+                  <option>Makanan</option>
+                  <option>Lainnya</option>
+                </select>
+              </label>
+              <label class="select-field" for="platform">
+                <span>Platform</span>
+                <select id="platform" name="platform">
+                  <option>Threads</option>
+                  <option>TikTok</option>
+                  <option>Instagram</option>
+                  <option>WhatsApp</option>
+                  <option>Shopee Video</option>
+                </select>
+              </label>
+              <label class="select-field" for="contentStyle">
+                <span>Gaya</span>
+                <select id="contentStyle" name="contentStyle">
+                  <option>Soft Selling</option>
+                  <option>Relate & Curhat</option>
+                  <option>Edukasi</option>
+                  <option>Review Jujur</option>
+                  <option>Viral Halus</option>
+                </select>
+              </label>
+            </div>
+
+            <button class="primary-btn" type="submit">Generate Paket</button>
+            <p class="loading" id="loadingText" aria-live="polite">lagi bantu mikirin angle jualan yang paling masuk akal...</p>
+          </form>
+
+          <section class="history-panel" id="historyPanel" aria-labelledby="historyTitle" hidden>
+            <div class="mini-head">
+              <h3 id="historyTitle">Riwayat 5 terakhir</h3>
+              <button class="text-btn" type="button" id="clearHistoryBtn">Bersihkan</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+          </section>
+        </section>
+      </section>
+
+      <section class="result-shell hidden" id="resultShell" aria-labelledby="resultTitle">
+        <div class="quick-result" id="quickResult">
+          <div class="quick-head">
+            <div>
+              <p class="micro-label">Quick result</p>
+              <h2 id="resultTitle">Ringkasan utama</h2>
+            </div>
+            <div class="quick-actions">
+              <button class="mini-copy" type="button" id="copyQuickBtn">Copy Ringkasan</button>
+              <button class="mini-copy" type="button" id="regenBtn">Regenerate</button>
+              <button class="mini-copy" type="button" id="shortBtn">Ringkas</button>
+            </div>
+          </div>
+          <div class="quick-grid" id="quickGrid"></div>
+        </div>
+
+        <div class="tabs-card">
+          <div class="tab-head">
+            <div class="tabs" role="tablist" aria-label="Kategori output">
+              <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="strategy">Strategi</button>
+              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="content">Konten</button>
+              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="video">Video</button>
+              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="dmplan">DM & Plan</button>
+            </div>
+            <button class="mini-copy" type="button" id="copyTabBtn">Copy Strategi</button>
+          </div>
+          <div class="tab-panel" id="tabPanel" role="tabpanel"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Dibuat untuk pemula yang pengen jualan lebih rapi, bukan makin pusing.</footer>
+  </div>
+
+  <div class="mobile-action-bar hidden" id="mobileActionBar" aria-label="Aksi cepat">
+    <button type="button" id="stickyCopyBtn">Copy Semua</button>
+    <button type="button" id="stickyRegenBtn">Regenerate</button>
+    <button type="button" id="stickyShortBtn">Ringkas</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Berhasil disalin.</div>
+  <script src="script.js"></script>
+</body>
+</html>
