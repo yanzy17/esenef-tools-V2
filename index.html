@@ -16,10 +16,12 @@
       </a>
       <div class="top-actions">
         <span class="assistant-badge">Digital Seller Assistant</span>
-        <button class="ghost-btn" type="button" id="historyToggle">Riwayat</button>
+        <button class="ghost-btn" type="button" id="historyToggle" aria-controls="historyPanel" aria-expanded="false">Riwayat</button>
         <button class="ghost-btn" type="button" id="resetBtn">Reset</button>
       </div>
     </header>
+
+    <noscript class="noscript">Tools ini butuh JavaScript aktif supaya generator, copy, dan riwayat bisa berjalan.</noscript>
 
     <main id="top">
       <section class="workspace" aria-labelledby="heroTitle">
@@ -119,7 +121,7 @@
             </div>
             <button class="mini-copy" type="button" id="copyTabBtn">Copy Strategi</button>
           </div>
-          <div class="tab-panel" id="tabPanel"></div>
+          <div class="tab-panel" id="tabPanel" role="tabpanel"></div>
         </div>
       </section>
     </main>

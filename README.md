@@ -60,9 +60,9 @@ Tidak ada React, Vue, Next, build tool, file binary, gambar besar, video, atau f
 1. Push repository ke GitHub.
 2. Buka **Settings** repository.
 3. Masuk ke **Pages**.
-4. Pilih source dari branch utama, misalnya `main`.
+4. Pilih source dari branch utama `main`.
 5. Pilih folder root `/`.
 6. Klik **Save**.
 7. Buka URL GitHub Pages yang muncul setelah deploy selesai.
 
-Karena app ini static murni, tidak perlu konfigurasi server tambahan.
+Karena app ini static murni, tidak perlu konfigurasi server tambahan. Pastikan `index.html`, `style.css`, `script.js`, dan `README.md` tetap berada di root repository agar GitHub Pages bisa langsung membaca halaman utama.

@@ -465,7 +465,11 @@ function formatQuick() {
 function saveHistory(result) {
   const history = getHistory().filter(item => item.meta.product.toLowerCase() !== result.meta.product.toLowerCase());
   history.unshift({ ...result, savedAt: new Date().toISOString() });
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 5)));
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 5)));
+  } catch (error) {
+    console.warn("Riwayat tidak bisa disimpan di browser ini.", error);
+  }
   renderHistory();
 }
 
@@ -571,11 +575,16 @@ stickyShortBtn.addEventListener("click", () => regenerate("singkat"));
 
 historyToggle.addEventListener("click", () => {
   historyPanel.hidden = !historyPanel.hidden;
+  historyToggle.setAttribute("aria-expanded", String(!historyPanel.hidden));
   if (!historyPanel.hidden) renderHistory();
 });
 
 clearHistoryBtn.addEventListener("click", () => {
-  localStorage.removeItem(HISTORY_KEY);
+  try {
+    localStorage.removeItem(HISTORY_KEY);
+  } catch (error) {
+    console.warn("Riwayat tidak bisa dihapus di browser ini.", error);
+  }
   renderHistory();
 });
 
@@ -587,7 +596,13 @@ resetBtn.addEventListener("click", () => {
   mobileActionBar.classList.add("hidden");
   currentResult = null;
   activeTab = "strategy";
-  renderTab(activeTab);
+  document.querySelectorAll(".tab-btn").forEach(button => {
+    const isStrategy = button.dataset.tab === "strategy";
+    button.classList.toggle("active", isStrategy);
+    button.setAttribute("aria-selected", String(isStrategy));
+  });
+  copyTabBtn.textContent = "Copy Strategi";
+  tabPanel.innerHTML = "";
   productNameInput.focus();
 });
 
